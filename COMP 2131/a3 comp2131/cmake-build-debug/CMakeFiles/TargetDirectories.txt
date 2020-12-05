@@ -1,0 +1,3 @@
+/Users/yanlinzhu/Desktop/a3 comp2131/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/yanlinzhu/Desktop/a3 comp2131/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/yanlinzhu/Desktop/a3 comp2131/cmake-build-debug/CMakeFiles/a3_comp2131.dir

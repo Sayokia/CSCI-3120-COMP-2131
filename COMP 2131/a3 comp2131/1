@@ -1,0 +1,185 @@
+	.section	__TEXT,__text,regular,pure_instructions
+	.build_version macos, 10, 14	sdk_version 10, 14
+	.globl	_sum1                   ## -- Begin function sum1
+	.p2align	4, 0x90
+_sum1:                                  ## @sum1
+	.cfi_startproc
+## %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	movl	%edi, -4(%rbp)
+	movl	%esi, -8(%rbp)
+	movl	$0, -12(%rbp)
+	movl	-4(%rbp), %esi
+	movl	%esi, -16(%rbp)
+LBB0_1:                                 ## =>This Inner Loop Header: Depth=1
+	movl	-16(%rbp), %eax
+	cmpl	-8(%rbp), %eax
+	jg	LBB0_4
+## %bb.2:                               ##   in Loop: Header=BB0_1 Depth=1
+	movl	-12(%rbp), %eax
+	addl	-16(%rbp), %eax
+	movl	%eax, -12(%rbp)
+## %bb.3:                               ##   in Loop: Header=BB0_1 Depth=1
+	movl	-16(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -16(%rbp)
+	jmp	LBB0_1
+LBB0_4:
+	movl	-12(%rbp), %eax
+	popq	%rbp
+	retq
+	.cfi_endproc
+                                        ## -- End function
+	.globl	_sum2                   ## -- Begin function sum2
+	.p2align	4, 0x90
+_sum2:                                  ## @sum2
+	.cfi_startproc
+## %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	movl	%edi, -4(%rbp)
+	movl	%esi, -8(%rbp)
+	movl	$0, -12(%rbp)
+LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
+	movl	-4(%rbp), %eax
+	cmpl	-8(%rbp), %eax
+	jg	LBB1_3
+## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
+	movl	-12(%rbp), %eax
+	addl	-4(%rbp), %eax
+	movl	%eax, -12(%rbp)
+	movl	-4(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -4(%rbp)
+	jmp	LBB1_1
+LBB1_3:
+	movl	-12(%rbp), %eax
+	popq	%rbp
+	retq
+	.cfi_endproc
+                                        ## -- End function
+	.globl	_sum3                   ## -- Begin function sum3
+	.p2align	4, 0x90
+_sum3:                                  ## @sum3
+	.cfi_startproc
+## %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	movl	%edi, -4(%rbp)
+	movl	%esi, -8(%rbp)
+	movl	$0, -12(%rbp)
+LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
+	movl	-12(%rbp), %eax
+	addl	-4(%rbp), %eax
+	movl	%eax, -12(%rbp)
+	movl	-4(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -4(%rbp)
+## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
+	movl	-4(%rbp), %eax
+	cmpl	-8(%rbp), %eax
+	jle	LBB2_1
+## %bb.3:
+	movl	-12(%rbp), %eax
+	popq	%rbp
+	retq
+	.cfi_endproc
+                                        ## -- End function
+	.globl	_sum4                   ## -- Begin function sum4
+	.p2align	4, 0x90
+_sum4:                                  ## @sum4
+	.cfi_startproc
+## %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	movl	%edi, -4(%rbp)
+	movl	%esi, -8(%rbp)
+	movl	$0, -12(%rbp)
+LBB3_1:                                 ## =>This Inner Loop Header: Depth=1
+	movl	-12(%rbp), %eax
+	addl	-4(%rbp), %eax
+	movl	%eax, -12(%rbp)
+	movl	-4(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -4(%rbp)
+	movl	-4(%rbp), %eax
+	cmpl	-8(%rbp), %eax
+	jg	LBB3_3
+## %bb.2:                               ##   in Loop: Header=BB3_1 Depth=1
+	jmp	LBB3_1
+LBB3_3:
+	movl	-12(%rbp), %eax
+	popq	%rbp
+	retq
+	.cfi_endproc
+                                        ## -- End function
+	.globl	_main                   ## -- Begin function main
+	.p2align	4, 0x90
+_main:                                  ## @main
+	.cfi_startproc
+## %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	subq	$32, %rsp
+	movl	$0, -4(%rbp)
+	movl	$20, %edi
+	movl	$100, %esi
+	callq	_sum1
+	leaq	L_.str(%rip), %rdi
+	movl	%eax, %esi
+	movb	$0, %al
+	callq	_printf
+	movl	$20, %edi
+	movl	$100, %esi
+	movl	%eax, -8(%rbp)          ## 4-byte Spill
+	callq	_sum2
+	leaq	L_.str(%rip), %rdi
+	movl	%eax, %esi
+	movb	$0, %al
+	callq	_printf
+	movl	$20, %edi
+	movl	$100, %esi
+	movl	%eax, -12(%rbp)         ## 4-byte Spill
+	callq	_sum3
+	leaq	L_.str(%rip), %rdi
+	movl	%eax, %esi
+	movb	$0, %al
+	callq	_printf
+	movl	$20, %edi
+	movl	$100, %esi
+	movl	%eax, -16(%rbp)         ## 4-byte Spill
+	callq	_sum4
+	leaq	L_.str(%rip), %rdi
+	movl	%eax, %esi
+	movb	$0, %al
+	callq	_printf
+	xorl	%esi, %esi
+	movl	%eax, -20(%rbp)         ## 4-byte Spill
+	movl	%esi, %eax
+	addq	$32, %rsp
+	popq	%rbp
+	retq
+	.cfi_endproc
+                                        ## -- End function
+	.section	__TEXT,__cstring,cstring_literals
+L_.str:                                 ## @.str
+	.asciz	"%d\n"
+
+
+.subsections_via_symbols
